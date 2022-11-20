@@ -2,7 +2,10 @@
 
 these are my JS solutions to the annual [advent of code challenge](https://adventofcode.com/).
 
-you can run these in the shell with node, or (soon) through the front end I built
+you can run these in the shell with node, or through the front end I built at [adventofcode.neocities.org](https://adventofcode.neocities.org)
 
-to use node, you can print out the solution with this helper function:
-`node printSolution [file path]`
+### running
+
+you can clone just this repo and check the answers with node, use this helper function:
+
+> node printSolution [file path]

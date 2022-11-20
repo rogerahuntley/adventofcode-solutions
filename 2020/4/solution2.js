@@ -20,6 +20,5 @@ const isPassportValid = pass => {
   return true;
 }
 
-
 return passports.filter(p => isPassportValid(p)).length
 
