@@ -1,4 +1,4 @@
-const allNumbers = input.split("\n").slice(0, -1).map(n => Number(n))
+const allNumbers = input.trim().split("\n").map(n => Number(n))
 // we check all combinations of numbers, looping through all numbers with an offset to avoid repeating combinations
 
 for(let n1 = 0; n1 < allNumbers.length; n1++ ){

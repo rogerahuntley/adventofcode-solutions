@@ -1,4 +1,4 @@
-const map = input.split("\n").map(row => row.split(''))
+const map = input.trim().split("\n").map(row => row.split(''))
 // we check points on the path of a repeating map and count the number of trees we hit
 
 const slope = [1,3]

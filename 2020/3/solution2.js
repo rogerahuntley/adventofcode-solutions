@@ -1,4 +1,4 @@
-const map = input.split("\n").map(row => row.split(''))
+const map = input.trim().split("\n").map(row => row.split(''))
 // same as solution 1, but we check multiple slopes
 
 const slopes = [

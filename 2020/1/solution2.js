@@ -1,4 +1,4 @@
-const allNumbers = input.split("\n").slice(0, -1).map(n => Number(n))
+const allNumbers = input.trim().split("\n").map(n => Number(n))
 // same as solution 1, but with an additional loop
 
 for(let n1 = 0; n1 < allNumbers.length; n1++ ){

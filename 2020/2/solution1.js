@@ -1,4 +1,4 @@
-const allPasswords = input.split("\n").slice(0, -1)
+const allPasswords = input.trim().split("\n")
 // we count the number of occurences of a letter and make sure its in the range provided
 // example string:
 // 2-7 r: zrgsnrr

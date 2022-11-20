@@ -1,4 +1,4 @@
-const allPasswords = input.split("\n").slice(0, -1)
+const allPasswords = input.trim().split("\n")
 // we check if there is exactly 1 occurence of a specific letter in the positions provided
 // example string:
 // 2-7 r: zrgsnrr
