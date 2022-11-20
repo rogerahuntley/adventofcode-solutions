@@ -1,5 +1,5 @@
 const passports = input.trim().split("\n\n").map(p => Object.fromEntries(p.split(/\n|\s/g).map(f => f.split(':'))))
-// we format the passport into regular objects, and we check if these fields are valid
+// we format the passports into regular objects, and we check if these fields are valid
 
 const between = (num, low, high) => {
   return num && !isNaN(num) && num >= low && num <= high
