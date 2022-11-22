@@ -2,13 +2,13 @@ const bagRules = Object.fromEntries(input.trim().split("\n").map(br => br.split(
 // after transforming the input array into bag rules (example...)
 // bagRules = {
 //   'pale magenta': {
-//     'dim crimsons': '2',
-//     'plaid plums': '4',
-//     'muted silvers': '5',
-//     'dim yellows': '2'
+//     'dim crimson': '2',
+//     'plaid plum': '4',
+//     'muted silver': '5',
+//     'dim yellow': '2'
 //   },
 //   'vibrant orange': {
-//     'others': 0 
+//     'other': 0 
 //   },
 // }
 // we then find the data
