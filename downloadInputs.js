@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-const {writeFileSync, mkdirSync} = require('fs');
+const {writeFileSync, mkdirSync, existsSync} = require('fs');
 dotenv.config();
 
 if(!process.env.AOC_SESSION_KEY){
@@ -10,19 +10,36 @@ if(!process.env.AOC_SESSION_KEY){
 const key = process.env.AOC_SESSION_KEY;
 
 const getAndSaveInput = async (year, day) => {
-  const input = await (await fetch(`https://adventofcode.com/${year}/day/${day}/input`, {
-    headers: {
-      cookie: `session=${key}`
+  let path = `${year}/${day}/input.txt`
+  if (!existsSync(path)) {
+    const input = await (await fetch(`https://adventofcode.com/${year}/day/${day}/input`, {
+      headers: {
+        cookie: `session=${key}`
+      }
+    })).text();
+  
+    if(input.includes(`Please don't repeatedly request this endpoint before it unlocks!`)){
+      console.log('too early')
+      return false;
+    } else {
+      await mkdirSync(`${year}/${day}`, { recursive: true });    
+      writeFileSync(path, input);
     }
-  })).text();
-
-  await mkdirSync(`${year}/${day}`, { recursive: true });
-
-  writeFileSync(`${year}/${day}/input.txt`, input);
+  }
+  return true;
 }
 
-for(let year = 2015; year < 2022; year++){
-  for(let day = 1; day < 26; day++){
-    getAndSaveInput(year, day);
+const runLoop = async () => {
+  // cancel loop if we've hit an invalid
+  let invalid_hit = false
+  for(let year = 2015; year < 2023 && !invalid_hit; year++){
+    for(let day = 1; day < 26 && !invalid_hit; day++){
+      const valid = await getAndSaveInput(year, day)
+      if(!valid){
+        invalid_hit = true;
+      }
+    }
   }
 }
+
+runLoop()
