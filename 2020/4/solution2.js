@@ -5,9 +5,11 @@ const between = (num, low, high) => {
   return num && !isNaN(num) && num >= low && num <= high
 }
 
+// first we check that all general requirements are there
 const required = ['byr','iyr','eyr','hgt','hcl','ecl','pid']
 const isPassportComplete = passport => required.every(p => p in passport)
 
+// then we filter specificly based on each field's requirements
 const isPassportValid = pass => {
   if(!isPassportComplete(pass)) return false
   if(!between(pass.byr, 1920, 2002)) return false

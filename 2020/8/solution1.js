@@ -4,7 +4,8 @@ const indexes = new Set()
 let index = 0
 let accumulator = 0
 
-while(!indexes.has(index)){
+// emulates a lil fake computer which is expected to loop, and exits instead of looping
+while(!indexes.has(index) && index < instructions.length){
   indexes.add(index)
   const [op, num] = instructions[index]
   const functions = {

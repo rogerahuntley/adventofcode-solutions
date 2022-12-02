@@ -13,11 +13,10 @@ const bagRules = Object.fromEntries(input.trim().split("\n").map(br => br.split(
 // }
 // we then find the data
 
+// this is a true recursive function, counts how many bags our bag can hold (max nested)
 const getCount = bagObject => {
-  console.log(bagObject)
   let total = 1
   for(const [bag, quantity] of Object.entries(bagObject)){
-    console.log(bag)
     if(quantity != 0){
       total += getCount(bagRules[bag]) * quantity;
     }

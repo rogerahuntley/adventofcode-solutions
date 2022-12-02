@@ -4,19 +4,19 @@ let indexes = new Set()
 let index = 0
 let accumulator = 0
 
-let jmpTestedTo = 0 // this increases every attempt
-let jmpCurrent = 0 // this increases every nop/jmp, and flips where this == TestedTo
+let jmpTestedTo = 0 // stores at what index we flip, and we increment w/ each attempt
+let jmpCurrent = 0 // flips nop/jmp where jmpCurrent == jmpTestedTo, gets reset w/ each attempt
 
 const maxSwitchable = instructions.filter(i => ['nop','jmp'].includes(i[0])).length
 
-// while there are still possible switches to be made and index has not terminated
+// now we emulate a lil fake computer which is expected to loop due to a bad command, but we try to get it to terminate
 while(jmpTestedTo <= maxSwitchable && index < instructions.length){
   indexes = new Set()
   index = 0
   accumulator = 0
+
   jmpCurrent = 0
 
-  // while not infinited looped yet but index also has not terminated
   while(!indexes.has(index) && index < instructions.length){
     indexes.add(index)
     let [op, num] = instructions[index]
@@ -36,11 +36,11 @@ while(jmpTestedTo <= maxSwitchable && index < instructions.length){
       acc: () => { accumulator += num; index++ }
     }
     functions[op]();
-    console.log(op, num)
   }
   jmpTestedTo++;
 }
 
+// why did it exit? red herring?
 if(index < instructions.length){
   console.log('infinite loop')
 }

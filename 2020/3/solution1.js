@@ -9,6 +9,7 @@ while(pos[0] < map.length){
   let [y, x] = pos
   // skip first
   if(y != 0){
+    // wrap around left/right
     x = x % map[y].length
     if(map[y][x] == "#"){
       trees++;

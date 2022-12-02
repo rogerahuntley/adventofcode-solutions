@@ -19,7 +19,7 @@ const getAndSaveInput = async (year, day) => {
     })).text();
   
     if(input.includes(`Please don't repeatedly request this endpoint before it unlocks!`)){
-      console.log('too early')
+      console.log(`can't get ${year}/${day}, too early`)
       return false;
     } else {
       await mkdirSync(`${year}/${day}`, { recursive: true });    

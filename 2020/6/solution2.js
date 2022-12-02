@@ -2,7 +2,7 @@ const groups = input.trim().split("\n\n").map(g => g.split('\n').map(gm => new S
 // we merge answered shared among all group members and then count the total
 
 const groupAnswers = groups.map(g => {
-  // we're looking for answers from all members, so we can just use the first as a reference index
+  // we're looking for all answers answered by all members, so we can just use the first member's answers as a reference index
   const [first, ...rest] = g
   rest.forEach(ga => {
     first.forEach(a =>{

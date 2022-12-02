@@ -20,6 +20,7 @@ const doesSum = offset => {
   return false
 }
 
+// we use the number from solution 1 as a starting point for solution 2
 let goalNum
 for(const n in numbers){
   if(!doesSum(n)){
@@ -28,9 +29,8 @@ for(const n in numbers){
   }
 }
 
-let numList
-
 // using every number as a possible starting point, count up until we find the sum
+let numList
 for(let n1i = 0; n1i < data.length; n1i++){
   const summed = []
   let sum = 0

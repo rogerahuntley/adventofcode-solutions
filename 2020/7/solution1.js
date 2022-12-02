@@ -17,6 +17,8 @@ const checked = new Set()
 const toCheck = new Set(['shiny gold'])
 const canHold = new Set()
 
+// we gather all the bags that can hold our shiny gold bag, and then gather all the bags that can hold those
+// we're using a set because it automatically filters out duplicates
 while(toCheck.size > 0){
   for(const checking of toCheck){
     toCheck.delete(checking)
