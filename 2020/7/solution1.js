@@ -1,24 +1,24 @@
 const bagRules = Object.fromEntries(
   input
     .trim()
-    .split("\n")
-    .map((br) => br.split(" contain "))
+    .split('\n')
+    .map((br) => br.split(' contain '))
     .map((br) => [
-      br[0].replaceAll(" bags", ""),
+      br[0].replaceAll(' bags', ''),
       Object.fromEntries(
         br[1]
-          .replaceAll(/\.|\sbag|\sbags/g, "")
-          .split(", ")
+          .replaceAll(/\.|\sbag|\sbags/g, '')
+          .split(', ')
           .map((r) =>
             r
               .split(/\s(.*)/)
               .filter((r) => r)
               .reverse()
           )
-          .map((r) => [r[0].replace(/s$/, ""), Number(r[1] == "no" ? 0 : r[1])])
+          .map((r) => [r[0].replace(/s$/, ''), Number(r[1] == 'no' ? 0 : r[1])])
       ),
     ])
-);
+)
 // after transforming the input array into bag rules (example...)
 // bagRules = {
 //   'pale magenta': {
@@ -33,29 +33,29 @@ const bagRules = Object.fromEntries(
 // }
 // we then find the data
 
-const checked = new Set();
-const toCheck = new Set(["shiny gold"]);
-const canHold = new Set();
+const checked = new Set()
+const toCheck = new Set(['shiny gold'])
+const canHold = new Set()
 
 // we gather all the bags that can hold our shiny gold bag, and then gather all the bags that can hold those
 // we're using a set because it automatically filters out duplicates
 while (toCheck.size > 0) {
   for (const checking of toCheck) {
-    toCheck.delete(checking);
+    toCheck.delete(checking)
     // so we'll keep looping bag parents as long as we're adding into it
     for (const [bag, options] of Object.entries(bagRules)) {
       if (canHold.has(bag)) {
-        continue;
+        continue
       }
       if (options.hasOwnProperty(checking)) {
-        canHold.add(bag);
+        canHold.add(bag)
         if (!checked.has(bag) && !toCheck.has(bag)) {
-          toCheck.add(bag);
+          toCheck.add(bag)
         }
       }
     }
-    checked.add(checking);
+    checked.add(checking)
   }
 }
 
-return canHold.size;
+return canHold.size
