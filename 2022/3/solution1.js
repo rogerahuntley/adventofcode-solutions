@@ -6,15 +6,15 @@ const rucksacks = input
     new Set(sack.slice(sack.length / 2).split('')),
   ])
 // split data into rucksacks and compartments using sets (filters unique)
-// sack looks like:
+// rucksack looks like:
 // [
 //   Set(10) { 'H', 'Z', 'j', 'r', 'w', 'n', 't', 'S', 'D', 'G' },
 //   Set(8) { 'd', 'F', 'h', 'C', 'W', 'J', 'n', 'c' }
 // ],
 
-const priority = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('') // index gives us priority
+const priority = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
-// go through sacks, find common, get priority by index, and reduce
+// go through rucksacks, find common, get priority by index, and reduce
 return rucksacks
   .map((s) =>
     [...s[0]]

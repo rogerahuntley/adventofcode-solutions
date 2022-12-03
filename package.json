@@ -4,7 +4,7 @@
   "description": "these are my JS solutions to the annual [advent of code challenge](https://adventofcode.com/).",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --plugin-search-dir . --write ."
   },
   "repository": {
     "type": "git",
