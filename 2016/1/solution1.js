@@ -10,7 +10,7 @@ let direction = 0
 const cardinal = 'NESW'
 
 // rotate as needed and move forward
-directions.map((d) => {
+directions.forEach((d) => {
   const [side, distance] = d
   direction += side == 'R' ? 1 : -1
   direction = (4 + direction) % 4 // loops around 0-3

@@ -7,7 +7,7 @@ const merged = depths.slice(0, -2).map((d, i) => depths.slice(i, i + 3).reduce((
 // check merged
 let total = 0
 let last = merged.at(0)
-merged.map((d) => {
+merged.forEach((d) => {
   if (d > last) {
     total += 1
   }

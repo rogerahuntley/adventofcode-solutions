@@ -5,7 +5,7 @@ let last = digits.at(-1)
 let total = 0
 
 // loop through all and sum matches
-digits.map((d) => {
+digits.forEach((d) => {
   if (last == d) {
     total += d
   }

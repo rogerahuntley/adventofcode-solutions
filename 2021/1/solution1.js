@@ -3,7 +3,7 @@ const depths = input.trim().split('\n').map(Number)
 
 let total = 0
 let last = depths.at(0)
-depths.map((d) => {
+depths.forEach((d) => {
   if (d > last) {
     total += 1
   }
