@@ -25,15 +25,13 @@ while (changing) {
       const seat = row[seat_i]
 
       // find neighbors and tally up their state
-      let open = 0
       let taken = 0
       for (let direction of directions) {
         const [x, y] = direction
         // optional ?. lets us assume undefined without breaking
         const neighbor = seats[Number(row_i) + x]?.[Number(seat_i) + y]
-        if (neighbor == 'L') {
-          open++
-        } else if (neighbor == '#') {
+        // we only need to count taken seats
+        if (neighbor == '#') {
           taken++
         }
       }

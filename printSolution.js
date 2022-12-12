@@ -13,7 +13,7 @@ const printSolution = async (year, day, fileName) => {
     encoding: 'utf8',
     flag: 'r',
   })
-  result = new Function(`let input = \`${input}\`;\n${solution}`)()
+  const result = new Function(`let input = \`${input}\`;\n${solution}`)()
   console.log(result)
 }
 

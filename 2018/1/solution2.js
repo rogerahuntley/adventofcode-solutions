@@ -3,12 +3,16 @@ const numbers = input.trim().split('\n').map(Number)
 
 const frequencies = new Set([0])
 let total = 0
-while (true) {
+let returnTotal
+let checking = true
+while (checking) {
   for (let n of numbers) {
     total += n
     if (frequencies.has(total)) {
-      return total
+      checking = false
     }
     frequencies.add(total)
   }
 }
+
+return returnTotal

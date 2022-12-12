@@ -47,7 +47,7 @@ while (toCheck.size > 0) {
       if (canHold.has(bag)) {
         continue
       }
-      if (options.hasOwnProperty(checking)) {
+      if (checking in options) {
         canHold.add(bag)
         if (!checked.has(bag) && !toCheck.has(bag)) {
           toCheck.add(bag)

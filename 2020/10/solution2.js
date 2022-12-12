@@ -48,7 +48,7 @@ const chainVal = (chain) => {
   return (chainOptions[chain.length] ||= countChainOptions(chain))
 }
 
-countChainOptions = (chain) => {
+const countChainOptions = (chain) => {
   let options = [[chain[0]]]
   // we know the first and last are nessecary, we 'll do our best to remove those from the loop
   const first = chain[0]

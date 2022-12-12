@@ -21,8 +21,6 @@ const visited = (coord) => {
   return false
 }
 
-let final
-
 for (let d of directions) {
   const [side, distance] = d
   direction += side == 'R' ? 1 : -1

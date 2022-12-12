@@ -19,17 +19,21 @@ const findSeat = (current, direction) => {
   const [row_i, seat_i] = current
   const [x, y] = direction
   let multiplier = 1
-  while (true) {
+  let returnSeat // only gets set if L or #
+  let done = false
+  while (!done) {
     const seat = seats[Number(row_i) + x * multiplier]?.[Number(seat_i) + y * multiplier]
     // return if L or #, or keep looking if there's space
     if (!seat) {
-      return
+      done = true
     } else if (['L', '#'].includes(seat)) {
-      return seat
+      done = true
+      returnSeat = seat
     } else {
       multiplier++
     }
   }
+  return returnSeat
 }
 
 let changing = true
@@ -43,15 +47,13 @@ while (changing) {
       const seat = row[seat_i]
 
       // find neighbors and tally up their state
-      let open = 0
       let taken = 0
       for (let direction of directions) {
         const [x, y] = direction
         // optional ?. lets us assume undefined without breaking
         const neighbor = findSeat([row_i, seat_i], [x, y])
-        if (neighbor == 'L') {
-          open++
-        } else if (neighbor == '#') {
+        // we only need to count taken seats
+        if (neighbor == '#') {
           taken++
         }
       }

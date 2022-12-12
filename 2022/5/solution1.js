@@ -6,7 +6,7 @@ let [crates, instructions] = input
 const piles = {}
 
 // place the crates in the piles (in reverse, for stacking)
-crates = crates
+crates
   .slice(0, -1)
   .reverse()
   .map((row) => {
@@ -25,7 +25,7 @@ crates = crates
   })
 
 // follow instructions
-instructions = instructions
+instructions
   .map((i) =>
     i
       .split(/move | from | to /g)

@@ -1,4 +1,4 @@
-const { writeFileSync, mkdirSync, existsSync, readdirSync } = require('fs')
+const { writeFileSync, mkdirSync, existsSync } = require('fs')
 
 const generateEmptySolution = async (year, day) => {
   for (let file of ['solution1', 'solution2']) {
