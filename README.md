@@ -8,4 +8,7 @@ you can run these in the shell with node, or through the front end I built at [a
 
 you can clone just this repo and check the answers with node, use this helper function:
 
-> node printSolution [file path]
+```
+npm run test <year>/<day>/<solution>
+npm run test 2022/10/solution2.js
+```

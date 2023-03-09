@@ -4,6 +4,8 @@
   "description": "these are my JS solutions to the annual [advent of code challenge](https://adventofcode.com/).",
   "main": "main.js",
   "scripts": {
+    "download": "node downloadInputs.js",
+    "test": "node printSolution.js",
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
     "format": "prettier --plugin-search-dir . --write ."
   },
