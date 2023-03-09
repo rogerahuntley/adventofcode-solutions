@@ -1,6 +1,9 @@
 const dotenv = require('dotenv')
-const { writeFileSync, mkdirSync, existsSync } = require('fs')
+const { writeFileSync, mkdirSync, existsSync, unlinkSync } = require('fs')
 dotenv.config()
+
+// deleted files if they exist
+const deleteFile = true
 
 if (!process.env.AOC_SESSION_KEY) {
   console.error('no session key set')
@@ -11,6 +14,9 @@ const key = process.env.AOC_SESSION_KEY
 
 const getAndSaveInput = async (year, day) => {
   let path = `${year}/${day}/input.txt`
+  if(existsSync(path) && deleteFile) {
+    unlinkSync(path)
+  }
   if (!existsSync(path)) {
     const input = await (
       await fetch(`https://adventofcode.com/${year}/day/${day}/input`, {
