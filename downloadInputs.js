@@ -3,7 +3,7 @@ const { writeFileSync, mkdirSync, existsSync, unlinkSync } = require('fs')
 dotenv.config()
 
 // deleted files if they exist
-const deleteFile = true
+const deleteFile = false
 
 if (!process.env.AOC_SESSION_KEY) {
   console.error('no session key set')
