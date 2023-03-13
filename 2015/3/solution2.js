@@ -1,11 +1,9 @@
-const instructions = input
-  .trim()
-  .split('')
+const instructions = input.trim().split('')
 
 const directions = {
   '^': [0, 1],
   '>': [1, 0],
-  'v': [0, -1],
+  v: [0, -1],
   '<': [-1, 0],
 }
 

@@ -40,7 +40,6 @@ instructions.forEach((instruction) => {
   }
 })
 
-// WEBSITE WILL HAVE TO BE UPDATED TO SUPPORT MULTI-LINE STRINGS
 return signals
   .filter((line) => line.length > 0)
   .map((line) => line.join(''))

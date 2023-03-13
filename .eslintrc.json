@@ -12,6 +12,7 @@
   },
   "rules": {},
   "globals": {
-    "input": "writable"
+    "input": "readonly",
+    "CryptoJS": "readonly"
   }
 }
