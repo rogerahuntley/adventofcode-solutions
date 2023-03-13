@@ -14,7 +14,7 @@ const key = process.env.AOC_SESSION_KEY
 
 const getAndSaveInput = async (year, day) => {
   let path = `${year}/${day}/input.txt`
-  if(existsSync(path) && deleteFile) {
+  if (existsSync(path) && deleteFile) {
     unlinkSync(path)
   }
   if (!existsSync(path)) {
