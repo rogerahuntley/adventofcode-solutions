@@ -1,4 +1,4 @@
-const strings = input.trim().split("\n")
+const strings = input.trim().split('\n')
 
 // nice strings have:
 // 3 vowels
@@ -7,16 +7,16 @@ const strings = input.trim().split("\n")
 
 let totalNiceStrings = 0
 
-for(const string of strings) {
+for (const string of strings) {
   // 3 vowels
   const vowels = string.match(/a|e|i|o|u/g)
-  if(!vowels || vowels.length < 3){
+  if (!vowels || vowels.length < 3) {
     continue
   }
 
   // one letter that repeats
   const letter = string.match(/(.)\1/g)
-  if(!letter || letter.length == 0){
+  if (!letter || letter.length == 0) {
     continue
   }
 
